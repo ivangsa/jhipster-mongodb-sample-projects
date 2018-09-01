@@ -1,0 +1,24 @@
+{
+    "name": "CustomerOrder",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OrderStatus",
+            "fieldValues": "CONFIRMED,SHIPPED,DELIVERED"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180901102100",
+    "entityTableName": "customer_order",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

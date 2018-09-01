@@ -1,0 +1,24 @@
+{
+    "name": "OrderHistory",
+    "fields": [
+        {
+            "fieldName": "eventDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "newStatus",
+            "fieldType": "OrderStatus",
+            "fieldValues": "CONFIRMED,SHIPPED,DELIVERED"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180901102104",
+    "entityTableName": "order_history",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerOrder">
+            <h2><span jhiTranslate="jhipsterMongodbNorelationsApp.customerOrder.detail.title">Customer Order</span> {{customerOrder.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterMongodbNorelationsApp.customerOrder.date">Date</span></dt>
+                <dd>
+                    <span>{{customerOrder.date}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterMongodbNorelationsApp.customerOrder.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterMongodbNorelationsApp.OrderStatus.' + customerOrder.status}}">{{customerOrder.status}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customer-order', customerOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
