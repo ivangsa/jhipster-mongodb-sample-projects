@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="orderHistory">
+            <h2><span jhiTranslate="jhipsterMongodbWithDtoPaginationApp.orderHistory.detail.title">Order History</span> {{orderHistory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="jhipsterMongodbWithDtoPaginationApp.orderHistory.eventDate">Event Date</span></dt>
+                <dd>
+                    <span>{{orderHistory.eventDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterMongodbWithDtoPaginationApp.orderHistory.newStatus">New Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'jhipsterMongodbWithDtoPaginationApp.OrderStatus.' + orderHistory.newStatus}}">{{orderHistory.newStatus}}</span>
+                </dd>
+                <dt><span jhiTranslate="jhipsterMongodbWithDtoPaginationApp.orderHistory.customerOrder">Customer Order</span></dt>
+                <dd>
+                    <div *ngIf="orderHistory.customerOrderId">
+                        <a [routerLink]="['/customer-order', orderHistory.customerOrderId, 'view']">{{orderHistory.customerOrderId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/order-history', orderHistory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
