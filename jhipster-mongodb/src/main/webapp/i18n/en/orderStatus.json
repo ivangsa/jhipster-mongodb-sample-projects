@@ -1,0 +1,10 @@
+{
+    "jhipsterMongodbApp": {
+        "OrderStatus" : {
+            "null": "",
+            "CONFIRMED": "CONFIRMED",
+            "SHIPPED": "SHIPPED",
+            "DELIVERED": "DELIVERED"
+        }
+    }
+}
