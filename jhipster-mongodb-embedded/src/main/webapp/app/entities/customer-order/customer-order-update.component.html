@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-customer-order-heading" jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.home.createOrEditLabel">Create or edit a Customer Order</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!customerOrder.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="customerOrder.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.date" for="field_date">Date</label>
+                    <div class="d-flex">
+                        <input id="field_date" type="datetime-local" class="form-control" name="date" [(ngModel)]="date"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.status" for="field_status">Status</label>
+                    <select class="form-control" name="status" [(ngModel)]="customerOrder.status" id="field_status" >
+                        <option value="CONFIRMED">{{'jhipsterMongodbEmbeddedApp.OrderStatus.CONFIRMED' | translate}}</option>
+                        <option value="SHIPPED">{{'jhipsterMongodbEmbeddedApp.OrderStatus.SHIPPED' | translate}}</option>
+                        <option value="DELIVERED">{{'jhipsterMongodbEmbeddedApp.OrderStatus.DELIVERED' | translate}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <legend jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.paymentDetails"></legend>
+                        <div>TODO /embedded/</div>
+                        
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        <legend jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.shippingDetails"></legend>
+                        <div>TODO /embedded/</div>
+                        
+                    </fieldset>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.customer" for="field_customer">Customer</label>
+                    <select class="form-control" id="field_customer" name="customer" [(ngModel)]="customerOrder.customer" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOption.id === customerOrder.customer?.id ? customerOrder.customer : customerOption" *ngFor="let customerOption of customers; trackBy: trackCustomerById">{{customerOption.id}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label jhiTranslate="jhipsterMongodbEmbeddedApp.customerOrder.orderedItems" for="field_orderedItems">Ordered Items</label>
+                    <select class="form-control" id="field_orderedItems" multiple name="orderedItems" [(ngModel)]="customerOrder.orderedItems">
+                        <option [ngValue]="getSelected(customerOrder.orderedItems, orderedItemOption)" *ngFor="let orderedItemOption of ordereditems; trackBy: trackOrderedItemById">{{orderedItemOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-order-history-heading" jhiTranslate="jhipsterMongodbEmbeddedApp.orderHistory.home.createOrEditLabel">Create or edit a Order History</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!orderHistory.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="orderHistory.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterMongodbEmbeddedApp.orderHistory.eventDate" for="field_eventDate">Event Date</label>
+                    <div class="d-flex">
+                        <input id="field_eventDate" type="datetime-local" class="form-control" name="eventDate" [(ngModel)]="eventDate"
+                        />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterMongodbEmbeddedApp.orderHistory.newStatus" for="field_newStatus">New Status</label>
+                    <select class="form-control" name="newStatus" [(ngModel)]="orderHistory.newStatus" id="field_newStatus" >
+                        <option value="CONFIRMED">{{'jhipsterMongodbEmbeddedApp.OrderStatus.CONFIRMED' | translate}}</option>
+                        <option value="SHIPPED">{{'jhipsterMongodbEmbeddedApp.OrderStatus.SHIPPED' | translate}}</option>
+                        <option value="DELIVERED">{{'jhipsterMongodbEmbeddedApp.OrderStatus.DELIVERED' | translate}}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="jhipsterMongodbEmbeddedApp.orderHistory.customerOrder" for="field_customerOrder">Customer Order</label>
+                    <select class="form-control" id="field_customerOrder" name="customerOrder" [(ngModel)]="orderHistory.customerOrder" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="customerOrderOption.id === orderHistory.customerOrder?.id ? orderHistory.customerOrder : customerOrderOption" *ngFor="let customerOrderOption of customerorders; trackBy: trackCustomerOrderById">{{customerOrderOption.id}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

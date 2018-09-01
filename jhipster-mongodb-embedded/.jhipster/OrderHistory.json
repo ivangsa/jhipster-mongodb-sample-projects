@@ -1,0 +1,31 @@
+{
+    "name": "OrderHistory",
+    "fields": [
+        {
+            "fieldName": "eventDate",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "newStatus",
+            "fieldType": "OrderStatus",
+            "fieldValues": "CONFIRMED,SHIPPED,DELIVERED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customerOrder",
+            "otherEntityName": "customerOrder",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20180901100554",
+    "entityTableName": "order_history",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
