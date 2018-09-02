@@ -30,4 +30,4 @@ node_modules/generator-jhipster/cli/jhipster.js import-jdl ../models-jdl/orders-
 ```
 Please, try it!
 
-If you import a jdl model that doesn't work, please send us the jdl + .yo-rc.json so we can work on fixing it
+If you find a jdl model that doesn't work, please send us the jdl + .yo-rc.json so we can work on fixing it
