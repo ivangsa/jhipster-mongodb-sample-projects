@@ -7,20 +7,22 @@ Sample projects generated to test/develop support in JHipster for relations/embe
 You can try it by cloning and linking jhipster generator and importing a jdl...
 
 ## Cloning and linking a local version that supports relations in mongodb
-```mkdir jhipster-mongodb-sample-projects && cd jhipster-mongodb-sample-projects
+```bash
+mkdir jhipster-mongodb-sample-projects && cd jhipster-mongodb-sample-projects
 git clone https://github.com/ivangsa/jhipster-core.git
 git clone https://github.com/ivangsa/generator-jhipster.git
 cd jhipster-core
-git co mongodb-with-relations-v5.2
+git co mongodb-with-relations-v5.3
 yarn link
 cd ../generator-jhipster
-git co mongodb-with-relations-v5.2
+git co mongodb-with-relations-v5.3
 yarn link
 cd ..
 ```
 
 ## generating a project using local versions
-```# generating a project using local versions
+```bash
+# generating a project using local versions
 mkdir jhipster-mongodb-with-relations && cd jhipster-mongodb-with-relations
 yarn link jhipster-core && yarn link generator-jhipster
 node_modules/generator-jhipster/cli/jhipster.js
