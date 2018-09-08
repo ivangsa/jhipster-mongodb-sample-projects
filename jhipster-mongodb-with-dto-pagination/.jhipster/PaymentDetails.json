@@ -1,0 +1,19 @@
+{
+    "name": "PaymentDetails",
+    "fields": [
+        {
+            "fieldName": "creditCardNumber",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [],
+    "changelogDate": "20180908062301",
+    "entityTableName": "payment_details",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
