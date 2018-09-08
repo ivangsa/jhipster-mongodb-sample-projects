@@ -28,16 +28,14 @@ entity PaymentDetails {
 entity ShippingDetails {
 	address String	
 }
-entity OrderHistory {
-	eventDate Instant,
-	newStatus OrderStatus
+
+relationship OneToOne {
+	CustomerOrder{paymentDetails(creditCardNumber)} to PaymentDetails
 }
 
 relationship ManyToOne {
-	CustomerOrder{customer} to Customer,
-	CustomerOrder{paymentDetails} to PaymentDetails,
-	CustomerOrder{shippingDetails} to ShippingDetails,
-	OrderHistory{customerOrder} to CustomerOrder
+	CustomerOrder{customer(username)} to Customer,
+	CustomerOrder{shippingDetails(address)} to ShippingDetails
 }
 
 relationship ManyToMany {
