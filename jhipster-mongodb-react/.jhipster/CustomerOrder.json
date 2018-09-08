@@ -1,0 +1,53 @@
+{
+    "name": "CustomerOrder",
+    "fields": [
+        {
+            "fieldName": "date",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "status",
+            "fieldType": "OrderStatus",
+            "fieldValues": "CONFIRMED,SHIPPED,DELIVERED"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "paymentDetails",
+            "otherEntityName": "paymentDetails",
+            "otherEntityField": "creditCardNumber",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "customerOrder"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "customer",
+            "otherEntityName": "customer",
+            "otherEntityField": "username"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "shippingDetails",
+            "otherEntityName": "shippingDetails",
+            "otherEntityField": "address"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "",
+            "relationshipName": "orderedItems",
+            "otherEntityName": "orderedItem",
+            "otherEntityField": "name",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20180908063716",
+    "entityTableName": "customer_order",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}
