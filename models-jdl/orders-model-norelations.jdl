@@ -29,9 +29,4 @@ entity ShippingDetails {
 	address String	
 }
 
-entity OrderHistory {
-	eventDate Instant,
-	newStatus OrderStatus
-}
-
 

@@ -3737,7 +3737,7 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-generator-jhipster@5.3.1-mongodb-with-relations:
+generator-jhipster@5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/generator-jhipster/-/generator-jhipster-5.3.1.tgz#74230bcbb8ee9e9f0212dee7c2f375850061378e"
   dependencies:
