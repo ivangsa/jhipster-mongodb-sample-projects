@@ -1,7 +1,5 @@
 # jhipster-mongodb-sample-projects
 
-## ⚠️ Status: In Development
-
 Sample projects generated to test/develop support in JHipster for relations/embedded entities with mongodb.
 
 You can try it by cloning and linking jhipster generator and importing a jdl...
