@@ -10,10 +10,10 @@ mkdir jhipster-mongodb-sample-projects && cd jhipster-mongodb-sample-projects
 git clone https://github.com/ivangsa/jhipster-core.git
 git clone https://github.com/ivangsa/generator-jhipster.git
 cd jhipster-core
-git co mongodb-with-relations-v5.3
+git co mongodb-with-relations-feature-request
 yarn link
 cd ../generator-jhipster
-git co mongodb-with-relations-v5.3
+git co mongodb-with-relations-feature-request
 yarn link
 cd ..
 ```
